@@ -7,6 +7,7 @@ import {
   Scale, FileText, X
 } from 'lucide-react';
 import { saveVisitorAgreement } from '../lib/db';
+import { getBasePath } from '../data/base64Images';
 
 interface ScaffoldPresenterProps {
   onAccessGranted: (timeRemainingSeconds: number) => void;
@@ -406,7 +407,7 @@ export default function ScaffoldPresenter({ onAccessGranted }: ScaffoldPresenter
       <header className="p-6 lg:px-8 max-w-7xl w-full mx-auto flex justify-center items-center z-10 relative">
         <div className="flex flex-col items-center gap-1.5">
           <img 
-            src="/scaffold/dm_logo.png" 
+            src={`${getBasePath()}scaffold/dm_logo.png`} 
             alt="Design Mode Logo" 
             className="h-16 sm:h-20 w-auto object-contain hover:scale-105 transition-transform duration-300 filter drop-shadow-md"
             referrerPolicy="no-referrer"

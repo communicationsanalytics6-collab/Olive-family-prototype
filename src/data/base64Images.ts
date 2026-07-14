@@ -4,8 +4,18 @@
 // Using standard static assets instead of heavy base64 strings to keep the bundle small,
 // prevent build compilation issues, and allow reliable loading across all hosting environments.
 
-const base = import.meta.env.BASE_URL || '/';
-const cleanBase = base.endsWith('/') ? base : `${base}/`;
+export const getBasePath = (): string => {
+  if (typeof window !== 'undefined') {
+    const path = window.location.pathname;
+    const match = path.match(/\/olive-family-prototype/i);
+    if (match) {
+      return match[0] + '/';
+    }
+  }
+  return '/';
+};
+
+const cleanBase = getBasePath();
 
 export const SPUR_LOGO = `${cleanBase}images/spur-images/spur_logo.png`;
 export const PANAROTTIS_LOGO = `${cleanBase}images/panarottis-images/panarottis_logo.png`;
