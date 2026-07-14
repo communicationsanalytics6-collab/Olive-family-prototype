@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Google AI Studio App</title>
+    <script>
+      // Ensure trailing slash for GitHub Pages default URL to make relative asset paths resolve correctly
+      if (window.location.hostname.endsWith('.github.io') && window.location.pathname.toLowerCase().endsWith('/olive-family-prototype')) {
+        window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
